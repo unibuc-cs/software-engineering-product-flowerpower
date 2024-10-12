@@ -1,0 +1,6 @@
+@software_engineering_product_flowerpower_HostAddress = http://localhost:5148
+
+GET {{software_engineering_product_flowerpower_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
