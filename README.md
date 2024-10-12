@@ -1,5 +1,5 @@
 ﻿# **Bling24/1**
- ##**Product Vision**
+**Product Vision**
 **FOR** (*target customer*)
 *FOR* social media users and content creators enthusiastic about sharing visual moments.
 
