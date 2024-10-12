@@ -1,7 +1,7 @@
 ﻿# **Bling24/1**
 **Product Vision**
 **FOR** (*target customer*)
-+*FOR* social media users and content creators enthusiastic about sharing visual moments.
+*FOR* social media users and content creators enthusiastic about sharing visual moments.
 
 **WHO** (*statement of need or opportunity*)
 *The* users WHO want to share photos instantly with control over visibility and a limited lifespan.
