@@ -1,4 +1,4 @@
-﻿# **Blinq24/1**
+# **Blinq24/1**
 ### Product Vision
 #### FOR (target customer)
 FOR social media users and content creators enthusiastic about sharing visual moments.
@@ -27,3 +27,11 @@ OUR PRODUCT provides a simple, temporary photo-sharing experience with full cont
 - Temporary Photo Gallery: Photos are displayed in temporary galleries that disappear after 24 hours.
 - User-Friendly Interface: The interface, built with Angular, is intuitive and easy to use.
 - Notifications: Users receive notifications when a photo is uploaded to groups they are part of.
+
+### UML Diagrams
+#### Class Diagram
+![Class Diagram](images/class_diagram.png)
+#### Component Diagram
+![Component Diagram](images/component_diagram.png)
+#### Container Diagram
+![Container Diagram](images/container_diagram.png)
