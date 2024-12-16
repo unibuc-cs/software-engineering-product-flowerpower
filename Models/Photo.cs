@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace software_engineering_product_flowerpower.Models;
 
 public class Photo
 {
+    [Key]
     public int ID { get; set; }
     public int User_ID { get; set; }
     public byte[] Blob { get; set; }
