@@ -17,6 +17,10 @@ public class AppDbContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+        
         // FK compus
         modelBuilder.Entity<Visibility>()
             .HasKey(v => new { v.Photo_ID, v.User_ID });
