@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using software_engineering_product_flowerpower.Models;
 
 namespace software_engineering_product_flowerpower.Controllers;
@@ -8,6 +10,7 @@ namespace software_engineering_product_flowerpower.Controllers;
 public class UserController : Controller
 {
     private readonly AppDbContext _context;
+    private readonly PasswordHasher<string> _passwordHasher = new PasswordHasher<string>();
     
     public UserController(AppDbContext context)
     {
@@ -26,7 +29,7 @@ public class UserController : Controller
         await _context.Users.AddAsync(new User
         {
             Email = user.Email,
-            Password = user.Password,
+            Password = _passwordHasher.HashPassword(user.Email, user.Password),
             Username = user.Username
         });
 
@@ -36,6 +39,31 @@ public class UserController : Controller
         }
 
         return BadRequest("Failed to register user");
+
+    }
+    
+    [Route("login")]
+    [HttpPost]
+    public async Task<IActionResult> Login([FromBody] UserDto userDto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest("Model is not valid");
+        }
+
+        var user = _context.Users.FirstOrDefaultAsync(u => u.Email == userDto.Email).Result;
+        if (user == null)
+        {
+            return Unauthorized("Invalid credentials");
+        }
+        
+        if (_passwordHasher.VerifyHashedPassword(userDto.Email!, user.Password, userDto.Password!) ==
+            PasswordVerificationResult.Success)
+        {
+            return Ok(new { userId = user.ID });
+        }
+
+        return BadRequest("Failed to log user in");
 
     }
     
