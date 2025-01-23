@@ -9,7 +9,7 @@ public class AppDbContext : DbContext
     public DbSet<Visibility> Visibilities { get; set; }
     public DbSet<Notification> Notifications { get; set; }
     public DbSet<FriendRequest> FriendRequests { get; set; }
-
+    public DbSet<Friend> Friends { get; set; }
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
         
@@ -67,6 +67,18 @@ public class AppDbContext : DbContext
             .WithMany()
             .HasForeignKey(n => n.Photo_ID)
             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Friend>()
+            .HasOne(f => f.User1)
+            .WithMany()
+            .HasForeignKey(f => f.ID_User1)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Friend>()
+            .HasOne(f => f.User2)
+            .WithMany()
+            .HasForeignKey(f => f.ID_User2)
+            .OnDelete(DeleteBehavior.Restrict);
 
     }
 }

@@ -11,4 +11,7 @@ public class FriendRequest
 
     public int ID_User2 { get; set; }
     public User User2 { get; set; }
+
+    public bool IsAccepted { get; set; }
+    public DateTime RequestDate { get; set; }
 }

@@ -5,8 +5,11 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddEnvironmentVariables();
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
 builder.Services.AddDbContext<AppDbContext>(opt => 
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    opt.UseSqlServer(connectionString));
 
 builder.Services.AddControllers();
 
@@ -40,8 +43,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-
-
-
-
