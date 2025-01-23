@@ -13,8 +13,12 @@ import { CommonModule } from '@angular/common';
 export class SearchUserComponent implements OnInit {
   users: any[] = [];
   searchQuery: string = '';
+  senderId: number;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+    const userId = sessionStorage.getItem('userId');
+    this.senderId = userId ? parseInt(userId, 10) : 0;
+  }
 
   ngOnInit(): void {}
 
@@ -29,5 +33,16 @@ export class SearchUserComponent implements OnInit {
         }
       );
     }
+  }
+
+  sendFriendRequest(receiverId: number): void {
+    this.userService.sendFriendRequest(this.senderId, receiverId).subscribe(
+      (response: any) => {
+        console.log('Friend request sent successfully', response);
+      },
+      (error: any) => {
+        console.error('Error sending friend request', error);
+      }
+    );
   }
 }
