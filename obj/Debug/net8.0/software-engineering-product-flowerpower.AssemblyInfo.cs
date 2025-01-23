@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("software-engineering-product-flowerpower")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6406a32ef9e34fedf08e07bd61722bd7937c4c73")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c63245bc1eec5b28bf6ceb08d68d44c0c986d515")]
 [assembly: System.Reflection.AssemblyProductAttribute("software-engineering-product-flowerpower")]
 [assembly: System.Reflection.AssemblyTitleAttribute("software-engineering-product-flowerpower")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

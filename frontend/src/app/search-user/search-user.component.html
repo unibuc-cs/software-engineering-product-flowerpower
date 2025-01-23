@@ -1,0 +1,10 @@
+<div>
+  <h2>Search Users</h2>
+  <input [(ngModel)]="searchQuery" placeholder="Search by username" />
+  <button (click)="searchUsers()">Search</button>
+  <ul>
+    <li *ngFor="let user of users">
+      {{ user.username }}
+    </li>
+  </ul>
+</div>

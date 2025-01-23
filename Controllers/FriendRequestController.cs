@@ -43,6 +43,16 @@ namespace software_engineering_product_flowerpower.Controllers
             }
 
             friendRequest.IsAccepted = true;
+
+            var user1 = await _context.Users.FindAsync(friendRequest.ID_User1);
+            var user2 = await _context.Users.FindAsync(friendRequest.ID_User2);
+
+            if (user1 != null && user2 != null)
+            {
+                user1.Friends.Add(user2);
+                user2.Friends.Add(user1);
+            }
+
             await _context.SaveChangesAsync();
 
             return Ok(friendRequest);
@@ -56,17 +66,6 @@ namespace software_engineering_product_flowerpower.Controllers
                 .ToList();
 
             return Ok(pendingRequests);
-        }
-
-        [HttpGet("friends")]
-        public IActionResult GetFriendsList(int userId)
-        {
-            var friends = _context.FriendRequests
-                .Where(fr => (fr.ID_User1 == userId || fr.ID_User2 == userId) && fr.IsAccepted)
-                .Select(fr => fr.ID_User1 == userId ? fr.User2 : fr.User1)
-                .ToList();
-
-            return Ok(friends);
         }
     }
 }

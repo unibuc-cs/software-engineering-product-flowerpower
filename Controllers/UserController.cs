@@ -16,7 +16,9 @@ public class UserController : Controller
     {
         _context = context;
     }
-    
+
+   
+
     [Route("register")]
     [HttpPost]
     public async Task<IActionResult> Register([FromBody] UserDto user)
@@ -66,5 +68,14 @@ public class UserController : Controller
         return BadRequest("Failed to log user in");
 
     }
+
+    [HttpGet("search")]
+        public IActionResult SearchUsers(string username)
+        {
+            var users = _context.Users
+                .Where(u => u.Username.Contains(username))
+                .ToList();
+            return Ok(users);
+        }
     
 }

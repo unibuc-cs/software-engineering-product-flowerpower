@@ -9,7 +9,7 @@ public class AppDbContext : DbContext
     public DbSet<Visibility> Visibilities { get; set; }
     public DbSet<Notification> Notifications { get; set; }
     public DbSet<FriendRequest> FriendRequests { get; set; }
-    public DbSet<Friend> Friends { get; set; }
+   
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
         
@@ -20,6 +20,16 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<User>()
             .HasIndex(u => u.Email)
             .IsUnique();
+        
+        modelBuilder.Entity<User>()
+            .HasMany(u => u.Friends)
+            .WithMany()
+            .UsingEntity<Dictionary<string, object>>(
+                "UserFriends",
+                j => j.HasOne<User>().WithMany().HasForeignKey("FriendId").OnDelete(DeleteBehavior.Restrict),
+                j => j.HasOne<User>().WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Restrict)
+            );
+
         
         // FK compus
         modelBuilder.Entity<Visibility>()
@@ -68,17 +78,6 @@ public class AppDbContext : DbContext
             .HasForeignKey(n => n.Photo_ID)
             .OnDelete(DeleteBehavior.Cascade);
 
-        modelBuilder.Entity<Friend>()
-            .HasOne(f => f.User1)
-            .WithMany()
-            .HasForeignKey(f => f.ID_User1)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        modelBuilder.Entity<Friend>()
-            .HasOne(f => f.User2)
-            .WithMany()
-            .HasForeignKey(f => f.ID_User2)
-            .OnDelete(DeleteBehavior.Restrict);
-
+    
     }
 }
