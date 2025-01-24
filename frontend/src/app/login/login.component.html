@@ -2,7 +2,7 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="Email" />
+            <input matInput formControlName="Email"/>
             <mat-error *ngIf="form.get('Email')?.hasError('required')">
                 Email is required
             </mat-error>
@@ -13,7 +13,7 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="Password" />
+            <input matInput type="password" formControlName="Password"/>
             <mat-error *ngIf="form.get('Password')?.hasError('required')">
                 Password is required
             </mat-error>
@@ -26,4 +26,7 @@
             Login
         </button>
     </form>
+    <button style="margin-top:10px" mat-flat-button color="accent" (click)="goToRegister()">
+        Register page
+    </button>
 </div>

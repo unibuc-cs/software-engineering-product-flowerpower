@@ -5,6 +5,7 @@ import {MatButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-register',
@@ -28,7 +29,8 @@ export class RegisterComponent {
 
     constructor(
         private http: HttpClient,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private router:Router
     ) {
         this.form = this.fb.group({
             Username: ['', [Validators.required, Validators.minLength(3)]],
@@ -45,5 +47,10 @@ export class RegisterComponent {
         // Daca aveti alt port la backend mergeti la Properties/launchsettings.json la https si puneti 7077
         this.http.post('api/register', this.form.value).subscribe(res => console.log(res));
         
+    }
+
+
+    goToLogin(){
+        this.router.navigate(['/login']);
     }
 }
