@@ -1,0 +1,9 @@
+<h2>Friend Requests</h2>
+
+<ul class="friend-request-list">
+  <li *ngFor="let request of friendRequests" class="friend-request-item">
+    <span>From: {{ request.senderUsername }}</span>
+    <span>To: {{ request.receiverUsername }}</span>
+    <button (click)="acceptFriendRequest(request.id)" class="accept-button">Accept</button>
+  </li>
+</ul>
