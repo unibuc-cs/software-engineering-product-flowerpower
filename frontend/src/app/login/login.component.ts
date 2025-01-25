@@ -6,6 +6,7 @@ import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {Button} from "primeng/button";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ import {Router} from "@angular/router";
         MatLabel,
         MatError,
         ReactiveFormsModule,
-        NgIf
+        NgIf,
+        Button
     ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -46,7 +48,11 @@ export class LoginComponent {
         // Daca aveti alt port la backend mergeti la Properties/launchsettings.json la https si puneti 7077
         this.http.post<any>('api/login', this.form.value).subscribe(res => {
             sessionStorage.setItem("userId", res.userId);
-            this.router.navigate(['/home']);
+            this.router.navigate(['']);
         });
+    }
+    
+    goToRegister(){
+        this.router.navigate(['/register']);
     }
 }
