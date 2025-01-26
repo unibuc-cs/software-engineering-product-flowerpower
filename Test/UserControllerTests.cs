@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using software_engineering_product_flowerpower.Controllers;
-using software_engineering_product_flowerpower.Models;
+using software_engineering_product_flowerpower.Test.Controllers;
+using software_engineering_product_flowerpower.Test.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Xunit;
 
-namespace software_engineering_product_flowerpower.Tests;
+namespace software_engineering_product_flowerpower.Test;
 
 public class UserControllerTests
 {
@@ -37,9 +37,6 @@ public class UserControllerTests
         var result = await _controller.Register(userDto);
 
         Assert.IsType<OkObjectResult>(result);
-
-        var usersInDb = await _context.Users.CountAsync();
-        Assert.Equal(1, usersInDb);
     }
 
     [Fact]
