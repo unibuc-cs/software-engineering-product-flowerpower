@@ -1,17 +1,27 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {HttpClient, provideHttpClient} from "@angular/common/http";
+import {Component, OnInit} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
+import { HttpClient } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+import {Toast} from "primeng/toast";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-      RouterOutlet,
-      
+    RouterOutlet,
+    FormsModule,
+    Toast
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(       
+      private router: Router
+  
+  ) {
+  }
+  ngOnInit(): void {
     
+  }
 }
