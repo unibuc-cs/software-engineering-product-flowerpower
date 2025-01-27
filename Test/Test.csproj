@@ -1,11 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>software_engineering_product_flowerpower</RootNamespace>
-        <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
     </PropertyGroup>
 
     <ItemGroup>
@@ -39,35 +40,6 @@
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Migrations\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="Test\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="Test\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Remove="Test\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Test\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="Test\bin\Debug\net8.0\Test.deps.json" />
-      <_ContentIncludedByDefault Remove="Test\bin\Debug\net8.0\Test.runtimeconfig.json" />
-      <_ContentIncludedByDefault Remove="Test\obj\Debug\net8.0\Test.sourcelink.json" />
-      <_ContentIncludedByDefault Remove="Test\obj\project.assets.json" />
-      <_ContentIncludedByDefault Remove="Test\obj\project.packagespec.json" />
-      <_ContentIncludedByDefault Remove="Test\obj\Test.csproj.nuget.dgspec.json" />
     </ItemGroup>
 
 </Project>
