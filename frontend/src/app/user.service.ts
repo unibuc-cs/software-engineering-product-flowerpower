@@ -17,11 +17,18 @@ export class UserService {
   sendFriendRequest(senderId: number, receiverId: number): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/friendrequest/send?senderId=${senderId}&receiverId=${receiverId}`, {});
   }
+  
+  getAllUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/friend/all`);
+  }
+  getFriendsList(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/friend/${userId}/friends`);
+  }
 
-  getAllFriendRequests(isAccepted?: boolean): Observable<any[]> {
-    let url = `${this.apiUrl}/friendrequest/all`;
+  getAllFriendRequests(userId: number, isAccepted?: boolean): Observable<any[]> {
+    let url = `${this.apiUrl}/friendrequest/all?userId=${userId}`;
     if (isAccepted !== undefined) {
-      url += `?isAccepted=${isAccepted}`;
+      url += `&isAccepted=${isAccepted}`;
     }
     return this.http.get<any[]>(url);
   }

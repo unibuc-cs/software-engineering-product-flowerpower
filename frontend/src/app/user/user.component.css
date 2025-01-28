@@ -1,12 +1,9 @@
-.friend-request-list {
+.friend-list, .friend-request-list {
     list-style-type: none;
     padding: 0;
   }
   
-  .friend-request-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .friend-item, .friend-request-item {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;

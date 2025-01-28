@@ -98,15 +98,18 @@ namespace software_engineering_product_flowerpower.Controllers
         }
 
 
-        [HttpGet("all")]
-        public IActionResult GetAllFriendRequests(bool? isAccepted = null)
+       [HttpGet("all")]
+        public IActionResult GetAllFriendRequests(int userId, bool? isAccepted = null)
         {
             var query = _context.FriendRequests.AsQueryable();
+
+            query = query.Where(fr => fr.ID_User2 == userId);
 
             if (isAccepted.HasValue)
             {
                 query = query.Where(fr => fr.IsAccepted == isAccepted.Value);
-            }   
+            }
+
             var friendRequests = query
                 .Select(fr => new FriendRequestDto
                 {
