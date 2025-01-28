@@ -12,6 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 
 builder.Services.AddControllers();
 
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>

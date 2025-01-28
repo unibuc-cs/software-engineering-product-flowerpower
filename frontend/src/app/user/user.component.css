@@ -23,3 +23,37 @@
   .accept-button:hover {
     background-color: #218838;
   }
+
+  mat-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  mat-list-item h4 {
+    margin: 0;
+  }
+  
+  mat-list-item button {
+    margin-left: auto;
+  }
+  
+  mat-expansion-panel {
+    margin-bottom: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  
+  h3 {
+    margin-top: 10px;
+  }
+  
+  h4 {
+    margin: 0;
+  }

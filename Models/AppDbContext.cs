@@ -9,12 +9,12 @@ public class AppDbContext : DbContext
     public DbSet<Visibility> Visibilities { get; set; }
     public DbSet<Notification> Notifications { get; set; }
     public DbSet<FriendRequest> FriendRequests { get; set; }
-   
+    public DbSet<Group> Groups { get; set; } // Adăugăm această linie
+
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
-        
     }
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()
@@ -30,12 +30,24 @@ public class AppDbContext : DbContext
                 j => j.HasOne<User>().WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Restrict)
             );
 
-        
-        // FK compus
+        modelBuilder.Entity<User>()
+            .HasMany(u => u.Groups)
+            .WithMany(g => g.Members)
+            .UsingEntity<Dictionary<string, object>>(
+                "UserGroups",
+                j => j.HasOne<Group>().WithMany().HasForeignKey("GroupId").OnDelete(DeleteBehavior.Restrict),
+                j => j.HasOne<User>().WithMany().HasForeignKey("UserId").OnDelete(DeleteBehavior.Restrict)
+            );
+
+        modelBuilder.Entity<Group>()
+            .HasOne(g => g.Owner)
+            .WithMany()
+            .HasForeignKey(g => g.OwnerId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         modelBuilder.Entity<Visibility>()
             .HasKey(v => new { v.Photo_ID, v.User_ID });
         
-        // trebuie dezactivat cascading delete ca sa nu stearga userii din User, doar friend requestul etc
         modelBuilder.Entity<FriendRequest>()
             .HasOne(fr => fr.User1)
             .WithMany()
@@ -77,7 +89,5 @@ public class AppDbContext : DbContext
             .WithMany()
             .HasForeignKey(n => n.Photo_ID)
             .OnDelete(DeleteBehavior.Cascade);
-
-    
     }
 }

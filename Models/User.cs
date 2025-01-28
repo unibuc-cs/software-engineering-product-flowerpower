@@ -13,7 +13,8 @@ public class User
     
     public virtual ICollection<User>? Friends { get; set; }
 
-    // public virtual ICollection<User>? GroupMembers { get; set; }
+    [JsonIgnore]
+    public virtual ICollection<Group>? Groups { get; set; }
 
     public virtual ICollection<Photo>? Photos { get; set; }
 }

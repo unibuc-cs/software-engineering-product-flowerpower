@@ -33,7 +33,24 @@ export class UserService {
     return this.http.get<any[]>(url);
   }
 
+  createGroup(name: string, ownerId: number): Observable<any> {
+    const groupDto = { name, ownerId };
+    return this.http.post<any>(`${this.apiUrl}/group/create`, groupDto);
+  }
+
+  getUserGroups(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/group/user/${userId}/groups`);
+  }
+
   acceptFriendRequest(requestId: number): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/friendrequest/accept?requestId=${requestId}`, {});
+  }
+
+  addMemberToGroup(groupId: number, userId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/group/${groupId}/add-member`, userId);
+  }
+
+  getGroupDetails(groupId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/group/${groupId}`);
   }
 }
