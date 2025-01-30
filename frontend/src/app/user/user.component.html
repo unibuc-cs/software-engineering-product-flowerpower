@@ -1,79 +1,83 @@
-<h2>Friends List</h2>
-<mat-list>
-  <mat-list-item *ngFor="let friend of friends">
-    <mat-icon matListIcon>person</mat-icon>
-    <h4 matLine>{{ friend.username }}</h4>
-  </mat-list-item>
-</mat-list>
-
-<h2>Friend Requests</h2>
-<mat-list>
-  <mat-list-item *ngFor="let request of friendRequests">
-    <mat-icon matListIcon>person_add</mat-icon>
-    <h4 matLine>From: {{ request.senderUsername }}</h4>
-    <button mat-button (click)="acceptFriendRequest(request.id)">Accept</button>
-  </mat-list-item>
-</mat-list>
-
-<h2>Create Group</h2>
-<form [formGroup]="groupForm" (ngSubmit)="createGroup()">
-  <mat-form-field appearance="fill">
-    <mat-label>Group Name</mat-label>
-    <input matInput formControlName="groupName" />
-    <mat-error *ngIf="groupForm.get('groupName')?.hasError('required')">
-      Group name is required
-    </mat-error>
-    <mat-error *ngIf="groupForm.get('groupName')?.hasError('minlength')">
-      Group name must be at least 3 characters long
-    </mat-error>
-  </mat-form-field>
-  <button mat-raised-button color="primary" type="submit" [disabled]="groupForm.invalid">
-    Create Group
-  </button>
-</form>
-
-<h2>My Groups</h2>
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let group of userGroups" (opened)="getGroupDetails(group.id)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ group.name }}
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-list *ngIf="selectedGroup && selectedGroup.id === group.id">
-      <mat-list-item *ngFor="let member of selectedGroup.members">
-        <mat-icon matListIcon>person</mat-icon>
-        <h4 matLine>{{ member.username }}</h4>
-      </mat-list-item>
+<div class="page-container">
+    <app-search-user></app-search-user>
+    
+    <h2>Friends List</h2>
+    <mat-list>
+        <mat-list-item *ngFor="let friend of friends">
+            <mat-icon matListIcon>person</mat-icon>
+            <h4 matLine>{{ friend.username }}</h4>
+        </mat-list-item>
     </mat-list>
-  </mat-expansion-panel>
-</mat-accordion>
 
-<h2>Add Member to Group</h2>
-<form [formGroup]="addMemberForm" (ngSubmit)="addMemberToGroup()">
-  <mat-form-field appearance="fill">
-    <mat-label>Select Group</mat-label>
-    <mat-select formControlName="groupId">
-      <mat-option *ngFor="let group of userGroups" [value]="group.id">
-        {{ group.name }}
-      </mat-option>
-    </mat-select>
-    <mat-error *ngIf="addMemberForm.get('groupId')?.hasError('required')">
-      Group is required
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Select Friend</mat-label>
-    <mat-select formControlName="memberId">
-      <mat-option *ngFor="let friend of friends" [value]="friend.id">
-        {{ friend.username }}
-      </mat-option>
-    </mat-select>
-    <mat-error *ngIf="addMemberForm.get('memberId')?.hasError('required')">
-      Friend is required
-    </mat-error>
-  </mat-form-field>
-  <button mat-raised-button color="primary" type="submit" [disabled]="addMemberForm.invalid">
-    Add Member
-  </button>
-</form>
+    <h2>Friend Requests</h2>
+    <mat-list>
+        <mat-list-item *ngFor="let request of friendRequests">
+            <mat-icon matListIcon>person_add</mat-icon>
+            <h4 matLine>From: {{ request.senderUsername }}</h4>
+            <button mat-button (click)="acceptFriendRequest(request.id)">Accept</button>
+        </mat-list-item>
+    </mat-list>
+
+    <h2>Create Group</h2>
+    <form [formGroup]="groupForm" (ngSubmit)="createGroup()">
+        <mat-form-field appearance="fill">
+            <mat-label>Group Name</mat-label>
+            <input matInput formControlName="groupName" />
+            <mat-error *ngIf="groupForm.get('groupName')?.hasError('required')">
+                Group name is required
+            </mat-error>
+            <mat-error *ngIf="groupForm.get('groupName')?.hasError('minlength')">
+                Group name must be at least 3 characters long
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="groupForm.invalid">
+            Create Group
+        </button>
+    </form>
+
+    <h2>My Groups</h2>
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let group of userGroups" (opened)="getGroupDetails(group.id)">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{ group.name }}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list *ngIf="selectedGroup && selectedGroup.id === group.id">
+                <mat-list-item *ngFor="let member of selectedGroup.members">
+                    <mat-icon matListIcon>person</mat-icon>
+                    <h4 matLine>{{ member.username }}</h4>
+                </mat-list-item>
+            </mat-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <h2>Add Member to Group</h2>
+    <form [formGroup]="addMemberForm" (ngSubmit)="addMemberToGroup()">
+        <mat-form-field appearance="fill">
+            <mat-label>Select Group</mat-label>
+            <mat-select formControlName="groupId">
+                <mat-option *ngFor="let group of userGroups" [value]="group.id">
+                    {{ group.name }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addMemberForm.get('groupId')?.hasError('required')">
+                Group is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Friend</mat-label>
+            <mat-select formControlName="memberId">
+                <mat-option *ngFor="let friend of friends" [value]="friend.id">
+                    {{ friend.username }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addMemberForm.get('memberId')?.hasError('required')">
+                Friend is required
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="addMemberForm.invalid">
+            Add Member
+        </button>
+    </form>
+</div>

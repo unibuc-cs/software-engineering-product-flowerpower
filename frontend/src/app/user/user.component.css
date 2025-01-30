@@ -1,59 +1,60 @@
-.friend-list, .friend-request-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .friend-item, .friend-request-item {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  
-  .accept-button {
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .accept-button:hover {
-    background-color: #218838;
-  }
+.page-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
 
-  mat-list-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  mat-list-item h4 {
-    margin: 0;
-  }
-  
-  mat-list-item button {
-    margin-left: auto;
-  }
-  
-  mat-expansion-panel {
-    margin-bottom: 10px;
-  }
-  
-  mat-form-field {
-    width: 100%;
-  }
-  
-  h2 {
-    margin-top: 20px;
-  }
-  
-  h3 {
-    margin-top: 10px;
-  }
-  
-  h4 {
-    margin: 0;
-  }
+h2 {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  color: #333333;
+  font-weight: bold;
+  text-align: left;
+}
+
+mat-list {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+mat-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+mat-list-item:last-child {
+  border-bottom: none;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button[mat-raised-button] {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #0078d4;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 120, 212, 0.3);
+  transition: all 0.3s ease;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #005a9e;
+  box-shadow: 0px 6px 15px rgba(0, 90, 158, 0.4);
+  transform: translateY(-2px);
+}

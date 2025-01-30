@@ -9,6 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {SearchUserComponent} from "../search-user/search-user.component";
 
 @Component({
   selector: 'app-user',
@@ -23,7 +24,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSelectModule,
     MatListModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    SearchUserComponent
   ],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
