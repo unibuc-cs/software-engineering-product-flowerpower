@@ -12,16 +12,18 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent, title: 'Register | Blinq24/1' },
     { path: 'login', component: LoginComponent, title: 'Login | Blinq24/1' },
     {
-        path: '',
+        path: 'home',
         component: HomeComponent,
         title: 'Home | Blinq24/1',
         canActivate: [AuthGuard],
         children: [
+            { path: '', redirectTo: 'hero', pathMatch: 'full' },
             { path: 'hero', component: HomeHeroComponent, title: 'Hero | Blinq24/1' } 
         ]
     },
     { path: 'search-users', component: SearchUserComponent },
-    {path: 'user', component: UserComponent}
+    { path: 'user', component: UserComponent},
+    { path: '**', redirectTo: '/home/hero', pathMatch: 'full' }
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
