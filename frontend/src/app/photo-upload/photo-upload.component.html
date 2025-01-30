@@ -1,13 +1,40 @@
-﻿
-<p-button  icon="pi pi-upload"  (click)="showDialog()" class="p-button-danger disconnect-button">Upload photo</p-button>
+﻿<p-button
+        icon="pi pi-upload"
+        (click)="showDialog()"
+        class="p-button-upload"
+>
+    Upload photo
+</p-button>
 
-
-<p-dialog [(visible)]="displayUploadDialog" [modal]="true" header="Upload Photo" [style]="{width: '400px'}">
-    <div class="p-fluid">
-        <p-fileupload mode="basic" customUpload (uploadHandler)="onUpload($event)" accept="image/*" chooseLabel="Select Image"></p-fileupload>
+<p-dialog
+        [(visible)]="displayUploadDialog"
+        [modal]="true"
+        header="Upload Photo"
+        [style]="{ width: '500px', 'border-radius': '16px' }"
+        [contentStyle]="{ 'background-color': '#ffffff', padding: '40px', 'border-radius': '16px' }"
+>
+    <div class="dialog-content">
+        <div class="custom-upload-container">
+            <label for="file-upload" class="custom-file-label">
+                <i class="pi pi-upload"></i> Select Image
+            </label>
+            <input
+                    id="file-upload"
+                    type="file"
+                    (change)="onFileSelected($event)"
+                    accept="image/*"
+                    class="hidden-file-input"
+            />
+            <p *ngIf="selectedFileName" class="file-name">
+                {{ selectedFileName }}
+            </p>
+        </div>
     </div>
-
     <ng-template pTemplate="footer">
-        <p-button label="Close" icon="pi pi-times" class="p-button-text" (click)="displayUploadDialog = false"></p-button>
+        <p-button
+                icon="pi pi-times"
+                class="p-button-close"
+                (click)="displayUploadDialog = false"
+        >Close</p-button>
     </ng-template>
 </p-dialog>

@@ -20,7 +20,8 @@ import {PrimeTemplate} from "primeng/api";
         Button,
         Dialog,
         FileUpload,
-        PrimeTemplate
+        PrimeTemplate,
+        NgIf
     ],
   templateUrl: './photo-upload.component.html',
   styleUrl: './photo-upload.component.css'
@@ -36,15 +37,29 @@ export class PhotoUploadComponent {
     }
 
     displayUploadDialog: boolean = false;
+    selectedFileName: string = '';
 
     showDialog() {
         this.displayUploadDialog = true;
     }
+    onUpload(event: any): void {
+        if (event?.files && event.files.length > 0) {
+            const file = event.files[0];
+            console.log('Uploaded file:', file);
+        } else {
+            console.error('No file uploaded or event is invalid.');
+        }
+    }
 
-    onUpload(event: any) {
-        const file = event.files[0];
-        console.log('Uploaded file:', file);
-        
+    onFileSelected(event: Event): void {
+        const input = event.target as HTMLInputElement;
+        if (input?.files && input.files.length > 0) {
+            this.selectedFileName = input.files[0].name;
+            console.log('Selected file:', this.selectedFileName);
+        } else {
+            console.error('No file selected or input is invalid.');
+            this.selectedFileName = ''; 
+        }
     }
 
    

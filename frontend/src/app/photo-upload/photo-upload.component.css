@@ -1,17 +1,88 @@
-﻿
-
-.disconnect-button {
+﻿.p-button-upload {
     font-size: 1rem;
     background-color: #6a48b4;
     color: white;
     border-radius: 20px;
-    padding: 10px 20px;
-    box-shadow: 0 4px 10px rgba(75, 51, 148, 0.4);
+    padding: 12px 24px;
+    box-shadow: 0 4px 12px rgba(75, 51, 148, 0.4);
     transition: all 0.3s ease-in-out;
 }
 
-p-dialog{
-    background-color: #6a48b4;
-    z-index: 999;
+.p-button-upload:hover {
+    background-color: #5e3aa3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(94, 58, 163, 0.5);
 }
 
+
+
+.custom-file-upload {
+    font-size: 1.2rem;
+    background-color: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    display: block;
+}
+
+.custom-file-upload:hover {
+    background-color: #eaeaea;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.p-button-close {
+    font-size: 1rem;
+    color: #6a48b4;
+    background-color: transparent;
+    border: 1px solid #6a48b4;
+    border-radius: 20px;
+    padding: 12px 15px;
+    margin:0 20px 20px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.p-button-close:hover {
+    background-color: #6a48b4;
+    color: white;
+    box-shadow: 0 4px 10px rgba(75, 51, 148, 0.4);
+}
+
+
+.custom-upload-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styled label for the upload button */
+.custom-file-label {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #6a48b4;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.custom-file-label:hover {
+    background-color: #5e3aa3;
+    box-shadow: 0 4px 10px rgba(94, 58, 163, 0.5);
+}
+
+.hidden-file-input {
+    display: none;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #6a48b4;
+    font-weight: 500;
+}

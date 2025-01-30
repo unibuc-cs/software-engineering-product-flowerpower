@@ -2,3 +2,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.p-dialog {
+    background-color: #ffffff !important;
+}
+
+
+.p-dialog-close-button {
+    margin: 20px;
+}
+
+
+.p-dialog-header {
+    font-size: 1.8rem;
+    margin-left: 40px;
+    color: #333333;
+    font-weight: 500;
+    text-align: left;
+}
