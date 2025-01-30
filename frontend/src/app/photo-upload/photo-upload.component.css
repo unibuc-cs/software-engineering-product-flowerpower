@@ -1,0 +1,17 @@
+﻿
+
+.disconnect-button {
+    font-size: 1rem;
+    background-color: #6a48b4;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(75, 51, 148, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+p-dialog{
+    background-color: #6a48b4;
+    z-index: 999;
+}
+

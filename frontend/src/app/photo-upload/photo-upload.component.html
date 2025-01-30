@@ -1,0 +1,13 @@
+﻿
+<p-button  icon="pi pi-upload"  (click)="showDialog()" class="p-button-danger disconnect-button">Upload photo</p-button>
+
+
+<p-dialog [(visible)]="displayUploadDialog" [modal]="true" header="Upload Photo" [style]="{width: '400px'}">
+    <div class="p-fluid">
+        <p-fileupload mode="basic" customUpload (uploadHandler)="onUpload($event)" accept="image/*" chooseLabel="Select Image"></p-fileupload>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <p-button label="Close" icon="pi pi-times" class="p-button-text" (click)="displayUploadDialog = false"></p-button>
+    </ng-template>
+</p-dialog>
