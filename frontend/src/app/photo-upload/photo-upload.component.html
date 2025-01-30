@@ -28,6 +28,11 @@
             <p *ngIf="selectedFileName" class="file-name">
                 {{ selectedFileName }}
             </p>
+            <p-button *ngIf="this.selectedFile != null || this.selectedFile != undefined"
+                    icon="pi pi-upload"
+                    class="p-button-upload"
+                    (click)="onUpload($event)"
+            >Upload photo</p-button>
         </div>
     </div>
     <ng-template pTemplate="footer">
