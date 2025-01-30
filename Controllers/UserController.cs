@@ -62,7 +62,7 @@ public class UserController : Controller
         if (_passwordHasher.VerifyHashedPassword(userDto.Email!, user.Password, userDto.Password!) ==
             PasswordVerificationResult.Success)
         {
-            return Ok(new { userId = user.ID });
+            return Ok(new { userId = user.ID , username = user.Username });
         }
 
         return BadRequest("Failed to log user in");

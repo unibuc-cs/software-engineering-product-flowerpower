@@ -28,6 +28,10 @@ export class HeaderComponent {
     ) {
        
     }
+    
+    goToFriendsList(){
+        this.router.navigate(["/home/user"]);
+    }
 
    
 }

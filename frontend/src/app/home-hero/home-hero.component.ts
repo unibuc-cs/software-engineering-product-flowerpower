@@ -10,4 +10,5 @@ import {HeaderComponent} from "../header/header.component";
 })
 export class HomeHeroComponent {
 
+    protected readonly sessionStorage = sessionStorage;
 }
