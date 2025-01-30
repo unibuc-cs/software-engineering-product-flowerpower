@@ -7,10 +7,19 @@ import {AuthGuard} from "./auth.guard";
 import { SearchUserComponent } from './search-user/search-user.component';
 
 import { UserComponent } from './user/user.component';
+import {HomeHeroComponent} from "./home-hero/home-hero.component";
 export const routes: Routes = [
     { path: 'register', component: RegisterComponent, title: 'Register | Blinq24/1' },
     { path: 'login', component: LoginComponent, title: 'Login | Blinq24/1' },
-    { path: '', component: HomeComponent, title: 'Home | Blinq24/1', canActivate: [AuthGuard] }, // partea cu canActivate o puneti la rute doar pt useri logati
+    {
+        path: '',
+        component: HomeComponent,
+        title: 'Home | Blinq24/1',
+        canActivate: [AuthGuard],
+        children: [
+            { path: 'hero', component: HomeHeroComponent, title: 'Hero | Blinq24/1' } 
+        ]
+    },
     { path: 'search-users', component: SearchUserComponent },
     {path: 'user', component: UserComponent}
 ];

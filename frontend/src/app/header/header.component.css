@@ -8,6 +8,11 @@
     border-radius: 0 0 10px 10px;
 }
 
+p-toolbar {
+    z-index: 1000;
+    position: sticky;
+}
+
 .container-items {
     display: flex;
     justify-content: space-between;
