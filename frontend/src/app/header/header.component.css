@@ -1,0 +1,18 @@
+.header-toolbar {
+    width: 100%;
+    background-color: #007ad9;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.p-button-danger {
+    font-size: 1rem;
+}
