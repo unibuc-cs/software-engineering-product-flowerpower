@@ -1,12 +1,20 @@
 <h2>Search Users</h2>
 <div class="search-container">
-  <input [(ngModel)]="searchQuery" placeholder="Search by username" class="search-input" />
-  <button (click)="searchUsers()" class="search-button">Search</button>
+    <input [(ngModel)]="searchQuery" placeholder="Search by username" class="search-input" />
+    <button mat-raised-button color="primary" (click)="searchUsers()" class="search-button">Search</button>
 </div>
 
-<ul class="user-list">
-  <li *ngFor="let user of users" class="user-item">
-    {{ user.username }}
-    <button (click)="sendFriendRequest(user.id)" class="friend-request-button">Send Friend Request</button>
-  </li>
-</ul>
+<div *ngIf="isSearchClicked">
+    <div *ngIf="users && users.length > 0; else noResults">
+        <ul class="user-list">
+            <li *ngFor="let user of users" class="user-item">
+                {{ user.username }}
+                <button mat-raised-button color="primary" (click)="sendFriendRequest(user.id)" class="friend-request-button">Send Friend Request</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ng-template #noResults>
+    <p class="no-data-message">No users found matching your search.</p>
+</ng-template>
