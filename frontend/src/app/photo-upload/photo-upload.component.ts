@@ -1,4 +1,4 @@
-import {Component, Injectable} from '@angular/core';
+﻿import {Component, Injectable} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatButton} from "@angular/material/button";
@@ -8,21 +8,25 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Button} from "primeng/button";
 import {Toolbar} from "primeng/toolbar";
-import {PhotoUploadComponent} from "../photo-upload/photo-upload.component";
+import {Dialog} from "primeng/dialog";
+import {FileUpload} from "primeng/fileupload";
+import {PrimeTemplate} from "primeng/api";
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-photo-upload',
   standalone: true,
     imports: [
         Toolbar,
         Button,
-        PhotoUploadComponent
+        Dialog,
+        FileUpload,
+        PrimeTemplate
     ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: './photo-upload.component.html',
+  styleUrl: './photo-upload.component.css'
 })
 @Injectable({providedIn: 'root'})
-export class HeaderComponent {
+export class PhotoUploadComponent {
     constructor(
         private http: HttpClient,
         private fb: FormBuilder,
@@ -30,9 +34,17 @@ export class HeaderComponent {
     ) {
        
     }
-    
-    goToFriendsList(){
-        this.router.navigate(["/home/user"]);
+
+    displayUploadDialog: boolean = false;
+
+    showDialog() {
+        this.displayUploadDialog = true;
+    }
+
+    onUpload(event: any) {
+        const file = event.files[0];
+        console.log('Uploaded file:', file);
+        
     }
 
    
