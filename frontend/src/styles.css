@@ -21,3 +21,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: 500;
     text-align: left;
 }
+
+.p-dialog .p-dialog-footer button {
+    font-size: 1rem;
+    border-radius: 20px;
+    padding: 12px 15px;
+    margin: 0 20px 20px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.p-button.p-button-icon-only {
+    width: fit-content;
+    padding: 15px 20px;
+}
+
+.p-button.p-button-icon-only span {
+    margin-left: 5px;
+}

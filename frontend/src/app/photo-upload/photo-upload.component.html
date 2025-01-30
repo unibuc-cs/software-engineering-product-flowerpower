@@ -10,8 +10,8 @@
         [(visible)]="displayUploadDialog"
         [modal]="true"
         header="Upload Photo"
-        [style]="{ width: '500px', 'border-radius': '16px' }"
-        [contentStyle]="{ 'background-color': '#ffffff', padding: '40px', 'border-radius': '16px' }"
+        [style]="{ width: '500px'}"
+        [contentStyle]="{ 'background-color': '#ffffff', padding: '40px' }"
 >
     <div class="dialog-content">
         <div class="custom-upload-container">
@@ -38,7 +38,7 @@
     <ng-template pTemplate="footer">
         <p-button
                 icon="pi pi-times"
-                class="p-button-close"
+                class="p-button-close p-button-danger"
                 (click)="displayUploadDialog = false"
         >Close</p-button>
     </ng-template>

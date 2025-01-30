@@ -1,20 +1,4 @@
-﻿.p-button-upload {
-    font-size: 1rem;
-    background-color: #6a48b4;
-    color: white;
-    border-radius: 20px;
-    padding: 12px 24px;
-    box-shadow: 0 4px 12px rgba(75, 51, 148, 0.4);
-    transition: all 0.3s ease-in-out;
-}
-
-.p-button-upload:hover {
-    background-color: #5e3aa3;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(94, 58, 163, 0.5);
-}
-
-
+﻿
 
 .custom-file-upload {
     font-size: 1.2rem;
@@ -33,31 +17,12 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.p-button-close {
-    font-size: 1rem;
-    color: #6a48b4;
-    background-color: transparent;
-    border: 1px solid #6a48b4;
-    border-radius: 20px;
-    padding: 12px 15px;
-    margin:0 20px 20px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.p-button-close:hover {
-    background-color: #6a48b4;
-    color: white;
-    box-shadow: 0 4px 10px rgba(75, 51, 148, 0.4);
-}
-
 
 .custom-upload-container {
     text-align: center;
     margin-top: 20px;
 }
 
-/* Styled label for the upload button */
 .custom-file-label {
     display: inline-block;
     padding: 12px 20px;
