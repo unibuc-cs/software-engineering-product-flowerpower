@@ -6,23 +6,20 @@ import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Button} from "primeng/button";
+import {Button, ButtonModule} from "primeng/button";
 import {Toolbar} from "primeng/toolbar";
-import {Dialog} from "primeng/dialog";
+import {Dialog, DialogModule} from "primeng/dialog";
 import {FileUpload} from "primeng/fileupload";
-import {PrimeTemplate} from "primeng/api";
+import {MessageService, PrimeTemplate} from "primeng/api";
 import {PhotoUploadService} from "../services/photo-upload.service";
 
 @Component({
   selector: 'app-photo-upload',
   standalone: true,
     imports: [
-        Toolbar,
-        Button,
-        Dialog,
-        FileUpload,
-        PrimeTemplate,
-        NgIf
+        NgIf,
+        ButtonModule,
+        DialogModule
     ],
   templateUrl: './photo-upload.component.html',
   styleUrl: './photo-upload.component.css'
@@ -33,6 +30,7 @@ export class PhotoUploadComponent {
         private http: HttpClient,
         private fb: FormBuilder,
         private router: Router,
+        private messageService: MessageService,
         private photoUploadService: PhotoUploadService,
     ) {
        
@@ -50,13 +48,17 @@ export class PhotoUploadComponent {
             this.photoUploadService.uploadPhoto(this.selectedFile,sessionStorage.getItem("userId")).subscribe({
                 next: data => {
                     console.log('Uploaded file:', this.selectedFile);
+                    this.messageService.add({severity: "succes",summary: "Upload succesful",detail :"The photo:" + this.selectedFileName + " has been uploaded"})
                 },
                 error:error => {
                     console.log(error)
+                    this.messageService.add({severity: "error",summary: "Upload failed",detail :"Error un upload"})
+
                 }
             })
         } else {
             console.error('No file uploaded or event is invalid.');
+            this.messageService.add({severity: "error",summary: "Invalid file selection",detail :"Invalid file selection"})
         }
     }
 
@@ -72,6 +74,5 @@ export class PhotoUploadComponent {
         }
     }
     
-
    
 }

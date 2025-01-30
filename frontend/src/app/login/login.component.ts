@@ -19,7 +19,6 @@ import {Button} from "primeng/button";
         MatError,
         ReactiveFormsModule,
         NgIf,
-        Button
     ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'

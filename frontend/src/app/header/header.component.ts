@@ -6,17 +6,17 @@ import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Button} from "primeng/button";
-import {Toolbar} from "primeng/toolbar";
+import {Button, ButtonModule} from "primeng/button";
+import {Toolbar, ToolbarModule} from "primeng/toolbar";
 import {PhotoUploadComponent} from "../photo-upload/photo-upload.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
     imports: [
-        Toolbar,
-        Button,
-        PhotoUploadComponent
+        PhotoUploadComponent,
+        ButtonModule,
+        ToolbarModule
     ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'

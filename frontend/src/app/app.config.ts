@@ -6,5 +6,9 @@ import { routes } from './app.routes';
 import {MessageService} from "primeng/api";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), provideAnimations(),MessageService]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideHttpClient(), 
+    provideAnimations(),MessageService,
+   ]
 };

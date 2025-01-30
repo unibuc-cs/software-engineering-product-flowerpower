@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import { HttpClient } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
-import {Toast} from "primeng/toast";
+import {Toast, ToastModule} from "primeng/toast";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import {Toast} from "primeng/toast";
   imports: [
     RouterOutlet,
     FormsModule,
-    Toast
+    ToastModule,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
