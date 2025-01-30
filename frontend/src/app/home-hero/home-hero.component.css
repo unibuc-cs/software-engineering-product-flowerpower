@@ -1,5 +1,4 @@
 .home {
-    overflow: hidden;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -27,7 +26,19 @@
     font-weight: bold;
     z-index: 100;
     position: absolute;
-    top: 50%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.welcome-text-username{
+    font-size: 6rem;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    z-index: 100;
+    position: absolute;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
