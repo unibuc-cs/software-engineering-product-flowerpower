@@ -11,22 +11,22 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   searchUsers(username: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/search?username=${username}`);
+    return this.http.get<any>(`api/search?username=${username}`);
   }
 
   sendFriendRequest(senderId: number, receiverId: number): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/friendrequest/send?senderId=${senderId}&receiverId=${receiverId}`, {});
+    return this.http.post<any>(`api/friendrequest/send?senderId=${senderId}&receiverId=${receiverId}`, {});
   }
   
   getAllUsers(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/friend/all`);
+    return this.http.get<any[]>(`api/friend/all`);
   }
   getFriendsList(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/friend/${userId}/friends`);
+    return this.http.get<any[]>(`api/friend/${userId}/friends`);
   }
 
   getAllFriendRequests(userId: number, isAccepted?: boolean): Observable<any[]> {
-    let url = `${this.apiUrl}/friendrequest/all?userId=${userId}`;
+    let url = `api/friendrequest/all?userId=${userId}`;
     if (isAccepted !== undefined) {
       url += `&isAccepted=${isAccepted}`;
     }
@@ -35,22 +35,22 @@ export class UserService {
 
   createGroup(name: string, ownerId: number): Observable<any> {
     const groupDto = { name, ownerId };
-    return this.http.post<any>(`${this.apiUrl}/group/create`, groupDto);
+    return this.http.post<any>(`api/group/create`, groupDto);
   }
 
   getUserGroups(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/group/user/${userId}/groups`);
+    return this.http.get<any[]>(`api/group/user/${userId}/groups`);
   }
 
   acceptFriendRequest(requestId: number): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/friendrequest/accept?requestId=${requestId}`, {});
+    return this.http.post<any>(`api/friendrequest/accept?requestId=${requestId}`, {});
   }
 
   addMemberToGroup(groupId: number, userId: number): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/group/${groupId}/add-member`, userId);
+    return this.http.post<any>(`api/group/${groupId}/add-member`, userId);
   }
 
   getGroupDetails(groupId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/group/${groupId}`);
+    return this.http.get<any>(`api/group/${groupId}`);
   }
 }
