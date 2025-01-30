@@ -46,7 +46,7 @@ export class LoginComponent {
         }
 
         // Daca aveti alt port la backend mergeti la Properties/launchsettings.json la https si puneti 7077
-        this.http.post<any>('https://localhost:7077/api/login', this.form.value).subscribe(res => {
+        this.http.post<any>('api/login', this.form.value).subscribe(res => {
             sessionStorage.setItem("userId", res.userId);
             this.router.navigate(['']);
         });

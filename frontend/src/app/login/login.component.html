@@ -1,32 +1,35 @@
-<div class="container">
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="Email"/>
-            <mat-error *ngIf="form.get('Email')?.hasError('required')">
-                Email is required
-            </mat-error>
-            <mat-error *ngIf="form.get('Email')?.hasError('email')">
-                Please enter a valid email
-            </mat-error>
-        </mat-form-field>
+<div class="auth-wrapper">
+    <div class="container">
+        <h1 class="auth-title">Authentication</h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="Email" />
+                <mat-error *ngIf="form.get('Email')?.hasError('required')">
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="form.get('Email')?.hasError('email')">
+                    Please enter a valid email
+                </mat-error>
+            </mat-form-field>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="Password"/>
-            <mat-error *ngIf="form.get('Password')?.hasError('required')">
-                Password is required
-            </mat-error>
-            <mat-error *ngIf="form.get('Password')?.hasError('minlength')">
-                Password must be at least 6 characters long
-            </mat-error>
-        </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="Password" />
+                <mat-error *ngIf="form.get('Password')?.hasError('required')">
+                    Password is required
+                </mat-error>
+                <mat-error *ngIf="form.get('Password')?.hasError('minlength')">
+                    Password must be at least 6 characters long
+                </mat-error>
+            </mat-form-field>
 
-        <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">
-            Login
+            <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">
+                Login
+            </button>
+        </form>
+        <button style="margin-top:10px" mat-flat-button color="accent" (click)="goToRegister()">
+            Register page
         </button>
-    </form>
-    <button style="margin-top:10px" mat-flat-button color="accent" (click)="goToRegister()">
-        Register page
-    </button>
+    </div>
 </div>
