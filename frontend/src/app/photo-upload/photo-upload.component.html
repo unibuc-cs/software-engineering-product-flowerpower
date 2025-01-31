@@ -23,28 +23,36 @@
                     type="file"
                     (change)="onFileSelected($event)"
                     accept="image/*"
-                    class="hidden-file-input"
+                    class="hidden-file-input p-button"
             />
             <p *ngIf="selectedFileName" class="file-name">
                 {{ selectedFileName }}
             </p>
             <div *ngIf = "this.selectedFile != null && this.selectedFile != undefined">
                 <p>Select visibility:</p>
-                <p-dropdown [style.margin-bottom] = "'10px'"  [(ngModel)]="this.selectedVisibility" [options]="this.userGroups" optionLabel="name" appendTo="body"></p-dropdown>
+                <p-dropdown                       [style]="{'min-width' : '170px'}"
+                                                  class="visibility-dropdown" [style.margin-bottom] = "'10px'"  [(ngModel)]="this.selectedVisibility" [options]="this.userGroups" optionLabel="name" appendTo="body"></p-dropdown>
             </div>
-            <p-button *ngIf="this.selectedFile != null && this.selectedFile != undefined && this.selectedVisibility != null"
-                    icon="pi pi-upload"
-                    class="p-button-upload"
-                    (click)="onUpload($event)"
-            >Upload photo</p-button>
+            
                 
         </div>
     </div>
     <ng-template pTemplate="footer">
-        <p-button
-                icon="pi pi-times"
-                class="p-button-close p-button-danger"
-                (click)="displayUploadDialog = false"
-        >Close</p-button>
+        <div [style]="{'display': 'flex', 'justify-content': 'space-between'}">
+           
+            <p-button
+                    icon="pi pi-times"
+                    class="p-button-close p-button-danger"
+                    (click)="displayUploadDialog = false"
+                    [style]="{'background-color' : '#D22B2B', 'border-color' : '#D22B2B'}"
+            >Close</p-button>
+            <p-button *ngIf="this.selectedFile != null && this.selectedFile != undefined && this.selectedVisibility != null"
+                      icon="pi pi-upload"
+                      class="p-button-upload"
+                      (click)="onUpload($event)"
+                      [style]="{'background-color' : 'green', 'border-color' : 'green'}"
+
+            >Upload photo</p-button>
+        </div>
     </ng-template>
 </p-dialog>
