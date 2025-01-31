@@ -35,7 +35,7 @@ public class UserController : Controller
 
         if (await _context.SaveChangesAsync() > 0)
         {
-            return Ok("User registered successfully");
+            return StatusCode(200);
         }
 
         return BadRequest("Failed to register user");
