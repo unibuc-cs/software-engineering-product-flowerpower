@@ -1,0 +1,23 @@
+.photo-gallery-container {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

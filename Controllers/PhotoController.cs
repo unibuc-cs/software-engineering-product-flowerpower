@@ -101,10 +101,18 @@ namespace software_engineering_product_flowerpower.Controllers
 
                 var visiblePhotos = await _context.Visibilities
                     .Where(v => v.User_ID == userId)
-                    .Include(v => v.Photo) 
-                    .Select(v => v.Photo)
-                    .Where(p => p.UploadTime >= DateTime.UtcNow.AddHours(-24)) 
+                    .Include(v => v.Photo)
+                    .ThenInclude(p => p.User) 
+                    .Select(v => new 
+                    {
+                        id = v.Photo.ID,
+                        username = v.Photo.User.Username, 
+                        blob = Convert.ToBase64String(v.Photo.Blob),
+                        uploadTime = v.Photo.UploadTime
+                    })
+                    .Where(p => p.uploadTime >= DateTime.UtcNow.AddHours(-24))
                     .ToListAsync();
+
 
                 if (!visiblePhotos.Any())
                 {
