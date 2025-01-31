@@ -51,3 +51,7 @@
     color: #6a48b4;
     font-weight: 500;
 }
+
+p-dropdown {
+    display: block;
+}

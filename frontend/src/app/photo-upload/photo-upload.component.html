@@ -28,11 +28,16 @@
             <p *ngIf="selectedFileName" class="file-name">
                 {{ selectedFileName }}
             </p>
-            <p-button *ngIf="this.selectedFile != null || this.selectedFile != undefined"
+            <div *ngIf = "this.selectedFile != null && this.selectedFile != undefined">
+                <p>Select visibility:</p>
+                <p-dropdown [style.margin-bottom] = "'10px'"  [(ngModel)]="this.selectedVisibility" [options]="this.userGroups" optionLabel="name" appendTo="body"></p-dropdown>
+            </div>
+            <p-button *ngIf="this.selectedFile != null && this.selectedFile != undefined && this.selectedVisibility != null"
                     icon="pi pi-upload"
                     class="p-button-upload"
                     (click)="onUpload($event)"
             >Upload photo</p-button>
+                
         </div>
     </div>
     <ng-template pTemplate="footer">
