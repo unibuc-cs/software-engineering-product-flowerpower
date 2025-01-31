@@ -45,14 +45,11 @@ export class RegisterComponent {
         }
 
         // Daca aveti alt port la backend mergeti la Properties/launchsettings.json la https si puneti 7077
-        this.http.post('api/register', this.form.value).subscribe({
-            next: res => {
-                this.goToLogin();
-            },
-            error: err => {
-                console.log(err);
-            }
-        });
+        this.http.post('api/register', this.form.value).subscribe(res => {
+            console.log(res);
+            this.goToLogin();
+        })
+        // this.goToLogin();
 
     }
 
