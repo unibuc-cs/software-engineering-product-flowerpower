@@ -34,6 +34,19 @@ export class HeaderComponent {
     goToFriendsList(){
         this.router.navigate(["/home/user"]);
     }
+    
+    goToMyPhotos(){
+        
+    }
+    
+    gotToFriendsPhotos(){
+        
+    }
+    
+    disconnect(){
+        sessionStorage.clear();
+        this.router.navigate(["/login"]);
+    }
 
    
 }
