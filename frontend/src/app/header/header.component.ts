@@ -40,7 +40,7 @@ export class HeaderComponent {
     }
     
     goToMyPhotos(){
-        
+        this.router.navigate(["/home/myPhoto"])
     }
     
     goToFriendsPhotos(){

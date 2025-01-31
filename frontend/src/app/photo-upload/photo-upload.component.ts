@@ -77,6 +77,7 @@ export class PhotoUploadComponent implements OnInit {
                         summary: "Upload succesful",
                         detail: "The photo:" + this.selectedFileName + " has been uploaded"
                     })
+                    this.displayUploadDialog = false;
                 },
                 error: error => {
                     console.log(error)

@@ -22,7 +22,7 @@ export const routes: Routes = [
             { path: 'hero', component: HomeHeroComponent, title: 'Hero | Blinq24/1'} ,
             { path: 'user', component: UserComponent , title:'User | Blinq24/1'},
             { path: 'dailyPhoto', component: DailyPhotoComponent , title:'Daily-Photo | Blinq24/1'},
-
+            { path: 'myPhoto', component: DailyPhotoComponent , title:'My-Photo | Blinq24/1'},
         ]
     },
     { path: '**', redirectTo: '/home/hero', pathMatch: 'full' }

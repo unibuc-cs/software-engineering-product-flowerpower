@@ -1,5 +1,6 @@
 <div class="photo-gallery-container">
-    <h2>User Photos</h2>
+    <h2 *ngIf = "this.routeType == 'dailyPhoto'">Friends Photos</h2>
+    <h2 *ngIf = "this.routeType == 'myPhoto'">My Photos</h2>
 
     <p-progressSpinner *ngIf="loading"></p-progressSpinner>
 

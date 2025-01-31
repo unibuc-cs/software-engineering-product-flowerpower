@@ -31,4 +31,8 @@ export class PhotoUploadService {
   getUserPhotos(userId: number): Observable<Photo[]> {
     return this.http.get<Photo[]>(`${this.baseLink}/user/${userId}`);
   }
+
+  getUserUploadedPhotos(userId: number): Observable<Photo[]> {
+    return this.http.get<Photo[]>(`${this.baseLink}/uploaded/${userId}`);
+  }
 }

@@ -126,6 +126,42 @@ namespace software_engineering_product_flowerpower.Controllers
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
+        
+        [HttpGet("uploaded/{userId}")]
+        public async Task<IActionResult> GetUserUploadedPhotos(int userId)
+        {
+            try
+            {
+                var user = await _context.Users.FindAsync(userId);
+                if (user == null)
+                {
+                    return NotFound("User not found.");
+                }
+
+                var uploadedPhotos = await _context.Photos
+                    .Where(p => p.User_ID == userId) // ✅ Get only the user's uploaded photos
+                    .Where(p => p.UploadTime >= DateTime.UtcNow.AddHours(-24)) // ✅ Filter last 24h
+                    .Select(p => new 
+                    {
+                        id = p.ID,
+                        username = p.User.Username, // ✅ Get username
+                        blob = Convert.ToBase64String(p.Blob),
+                        uploadTime = p.UploadTime
+                    })
+                    .ToListAsync();
+
+                if (!uploadedPhotos.Any())
+                {
+                    return NotFound("No recent photos uploaded by this user.");
+                }
+
+                return Ok(uploadedPhotos);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }
 
     }
 }
