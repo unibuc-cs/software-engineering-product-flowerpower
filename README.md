@@ -28,6 +28,9 @@ OUR PRODUCT provides a simple, temporary photo-sharing experience with full cont
 - User-Friendly Interface: The interface, built with Angular, is intuitive and easy to use.
 - Notifications: Users receive notifications when a photo is uploaded to groups they are part of.
 
+### Planning
+We approached the Kanban methodology for task solving. We created tasks (issues) from user stories (milestones) and solved depending on their priority, without any sprints.
+
 ### UML Diagrams
 #### Class Diagram
 ![Class Diagram](images/class_diagram.png)
