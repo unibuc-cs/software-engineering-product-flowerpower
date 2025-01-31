@@ -1,0 +1,16 @@
+<div class="photo-gallery-container">
+    <h2>User Photos</h2>
+
+    <p-progressSpinner *ngIf="loading"></p-progressSpinner>
+
+    <div *ngIf="!loading && photos.length > 0" class="photo-grid">
+        <p-card *ngFor="let photo of photos" class="photo-card">
+            <img [src]="'data:image/jpeg;base64,' + photo.blob" alt="Photo" />
+            <p-footer>
+                <small>Uploaded by <b>{{ photo.username }}</b> on {{ photo.uploadTime | date: 'medium' }}</small>
+            </p-footer>
+        </p-card>
+    </div>
+
+    <p *ngIf="!loading && photos.length === 0">No recent photos available.</p>
+</div>

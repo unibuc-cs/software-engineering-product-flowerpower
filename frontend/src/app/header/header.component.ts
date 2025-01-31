@@ -39,8 +39,8 @@ export class HeaderComponent {
         
     }
     
-    gotToFriendsPhotos(){
-        
+    goToFriendsPhotos(){
+        this.router.navigate(["/home/dailyPhoto"])
     }
     
     disconnect(){
