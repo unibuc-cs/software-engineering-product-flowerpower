@@ -56,7 +56,7 @@ public class UserController : Controller
         var user = _context.Users.FirstOrDefaultAsync(u => u.Email == userDto.Email).Result;
         if (user == null)
         {
-            return Unauthorized("Invalid credentials");
+            return Unauthorized("Invalid mail address");
         }
         
         if (_passwordHasher.VerifyHashedPassword(userDto.Email!, user.Password, userDto.Password!) ==
@@ -65,7 +65,7 @@ public class UserController : Controller
             return Ok(new { userId = user.ID , username = user.Username });
         }
 
-        return BadRequest("Failed to log user in");
+        return BadRequest("Invalid password");
 
     }
 
