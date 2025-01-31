@@ -5,12 +5,12 @@
 }
 
 .home-page-container {
-    background-image: url('../../../../images/annie-spratt-zA7I5BtFbvw-unsplash.jpg');
+    background-image: url('../../../../images/krzysztof-kowalik-2pnozU26QBo-unsplash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(255, 255, 255, 0.5);
-    filter: blur(100px);
+    filter: opacity(50%);
+    /*filter: blur(100px);*/
     height: 100%;
     width: 100%;
     position: relative;

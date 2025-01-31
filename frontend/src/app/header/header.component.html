@@ -1,10 +1,11 @@
 <p-toolbar class="header-toolbar">
         <div class="container-items">
             <div class="p-toolbar-group-left">
-                <p-button icon="pi pi-power-off" class="p-button-danger disconnect-button" (click)="goToFriendsList()">Friends list</p-button>
+                <p-button icon="pi pi-home" class="p-button-danger disconnect-button" (click)="goToHome()">Home</p-button>
+                <p-button icon="pi pi-users" class="p-button-danger disconnect-button" (click)="goToFriendsList()">Friends list</p-button>
                 <app-photo-upload></app-photo-upload>
-                <p-button icon="pi pi-power-off" class="p-button-danger disconnect-button" (click)="goToFriendsList()">My 24h Photos</p-button>
-                <p-button icon="pi pi-power-off" class="p-button-danger disconnect-button" (click)="goToFriendsList()">Daily Photos</p-button>
+                <p-button icon="pi pi-bolt" class="p-button-danger disconnect-button" (click)="goToFriendsList()">My 24h Photos</p-button>
+                <p-button icon="pi pi-images" class="p-button-danger disconnect-button" (click)="goToFriendsList()">Daily Photos</p-button>
             </div>
             <div class="p-toolbar-group-right">
                 <p-button icon="pi pi-power-off" class="p-button-danger disconnect-button" (click)="disconnect()">Disconnect</p-button>

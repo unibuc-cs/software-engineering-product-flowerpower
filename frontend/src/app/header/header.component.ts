@@ -34,6 +34,10 @@ export class HeaderComponent {
     goToFriendsList(){
         this.router.navigate(["/home/user"]);
     }
+
+    goToHome(){
+        this.router.navigate(["/home/hero"]);
+    }
     
     goToMyPhotos(){
         
