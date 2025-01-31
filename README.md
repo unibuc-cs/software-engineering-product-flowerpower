@@ -46,3 +46,6 @@ OUR PRODUCT provides a simple, temporary photo-sharing experience with full cont
 ### Manual Testing
 #### Task: As a Blinq24/1 developer, I want to manually test if my photo has been sent.
 ![Photo Upload](images/photo_upload.png)
+
+### Demo
+[![Demo](https://img.youtube.com/vi/8s--Spr9I40/0.jpg)](https://www.youtube.com/watch?v=8s--Spr9I40)
