@@ -32,3 +32,11 @@ h2 {
     text-align: center;
     
 }
+
+.no-data-message {
+    font-size: 1.3rem;
+    color: #666666;
+    font-style: italic;
+    text-align: center;
+    margin: 100px 0;
+}
