@@ -1,0 +1,24 @@
+.notifications-container {
+    max-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Afișează notificările pe verticală */
+}
+
+.notification-item {
+    background: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background-color: #e0e0e0; /* Culoare la hover */
+}
+
+.no-notifications {
+    text-align: center;
+    color: #888;
+}

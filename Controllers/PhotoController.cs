@@ -73,10 +73,16 @@ namespace software_engineering_product_flowerpower.Controllers
                     User_ID = member.ID,
                     Photo_ID = photo.ID
                 }).ToList();
+                
+                var notifications = targetUsers.Select(member => new Notification
+                {
+                    User_ID = member.ID,
+                    Photo_ID = photo.ID
+                }).ToList();
 
                 _context.Visibilities.AddRange(visibilities);
-
-                _context.Visibilities.AddRange(visibilities);
+                
+                _context.Notifications.AddRange(notifications);
 
                 await _context.SaveChangesAsync();
 

@@ -1,0 +1,10 @@
+<div class="notifications-container p-fluid">
+    <div *ngFor="let notif of notifications" class="notification-item" (click)="navigateToDailyPhotos()">
+        <p><strong>You received a photo from</strong> {{ notif.username }}!</p>
+        <small>{{ notif.uploadTime | date: 'medium' }}</small>
+    </div>
+
+    <div *ngIf="notifications.length === 0" class="no-notifications">
+        <p>No notifications available.</p>
+    </div>
+</div>

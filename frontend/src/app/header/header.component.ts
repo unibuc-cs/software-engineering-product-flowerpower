@@ -47,6 +47,10 @@ export class HeaderComponent {
         this.router.navigate(["/home/dailyPhoto"])
     }
     
+    goToNotifications() {
+        this.router.navigate(["/home/notifications"]);
+    }
+    
     disconnect(){
         sessionStorage.clear();
         this.router.navigate(["/login"]);

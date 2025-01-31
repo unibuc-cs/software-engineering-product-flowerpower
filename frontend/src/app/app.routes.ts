@@ -9,6 +9,7 @@ import { SearchUserComponent } from './search-user/search-user.component';
 import { UserComponent } from './user/user.component';
 import {HomeHeroComponent} from "./home-hero/home-hero.component";
 import {DailyPhotoComponent} from "./daily-photo/daily-photo.component";
+import {NotificationsComponent} from "./notifications/notifications.component";
 export const routes: Routes = [
     { path: 'register', component: RegisterComponent, title: 'Register | Blinq24/1' },
     { path: 'login', component: LoginComponent, title: 'Login | Blinq24/1' },
@@ -23,6 +24,7 @@ export const routes: Routes = [
             { path: 'user', component: UserComponent , title:'User | Blinq24/1'},
             { path: 'dailyPhoto', component: DailyPhotoComponent , title:'Daily-Photo | Blinq24/1'},
             { path: 'myPhoto', component: DailyPhotoComponent , title:'My-Photo | Blinq24/1'},
+            { path: 'notifications', component: NotificationsComponent , title: 'Notifications | Blinq24/1'},
         ]
     },
     { path: '**', redirectTo: '/home/hero', pathMatch: 'full' }

@@ -30,7 +30,7 @@ export class RegisterComponent {
     constructor(
         private http: HttpClient,
         private fb: FormBuilder,
-        private router:Router
+        private router: Router
     ) {
         this.form = this.fb.group({
             Username: ['', [Validators.required, Validators.minLength(3)]],
@@ -43,14 +43,21 @@ export class RegisterComponent {
         if (this.form.invalid) {
             return;
         }
-        
+
         // Daca aveti alt port la backend mergeti la Properties/launchsettings.json la https si puneti 7077
-        this.http.post('api/register', this.form.value).subscribe(res => console.log(res));
-        
+        this.http.post('api/register', this.form.value).subscribe({
+            next: res => {
+                this.goToLogin();
+            },
+            error: err => {
+                console.log(err);
+            }
+        });
+
     }
 
 
-    goToLogin(){
+    goToLogin() {
         this.router.navigate(['/login']);
     }
 }
