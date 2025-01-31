@@ -18,11 +18,10 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
             { path: '', redirectTo: 'hero', pathMatch: 'full' },
-            { path: 'hero', component: HomeHeroComponent, title: 'Hero | Blinq24/1' } ,
+            { path: 'hero', component: HomeHeroComponent, title: 'Hero | Blinq24/1'} ,
             { path: 'user', component: UserComponent , title:'User | Blinq24/1'},
         ]
     },
-    { path: 'search-users', component: SearchUserComponent },
     { path: '**', redirectTo: '/home/hero', pathMatch: 'full' }
 ];
 @NgModule({
