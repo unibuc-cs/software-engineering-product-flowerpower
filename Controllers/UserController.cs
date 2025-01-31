@@ -17,8 +17,6 @@ public class UserController : Controller
         _context = context;
     }
 
-   
-
     [Route("register")]
     [HttpPost]
     public async Task<IActionResult> Register([FromBody] UserDto user)
@@ -67,6 +65,21 @@ public class UserController : Controller
 
         return BadRequest("Invalid password");
 
+    }
+    
+    [HttpGet("get-user/{userId}")]
+    public async Task<IActionResult> GetUserName(int userId)
+    {
+        var user = await _context.Users
+            .Where(u => u.ID == userId)
+            .FirstOrDefaultAsync();
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(new { username = user.Username });
     }
 
     [HttpGet("search")]

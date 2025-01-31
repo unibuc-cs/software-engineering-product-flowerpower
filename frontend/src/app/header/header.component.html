@@ -9,6 +9,10 @@
                 <p-button icon="pi pi-images" class="p-button-danger disconnect-button" (onClick)="goToNotifications()">Notifications</p-button>                
             </div>
             <div class="p-toolbar-group-right">
+                <div class="user-info">
+                    <span class="welcome-text">Welcome,</span>
+                    <span class="user-name">{{ userName }}</span>
+                </div>
                 <p-button icon="pi pi-power-off" class="p-button-danger disconnect-button" (click)="disconnect()">Disconnect</p-button>
             </div>
         </div>

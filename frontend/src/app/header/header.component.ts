@@ -30,6 +30,20 @@ export class HeaderComponent {
     ) {
        
     }
+    userName: string = '';
+    userId: string | null = '';
+
+    ngOnInit(): void {
+        this.userId = sessionStorage.getItem('userId');
+
+        if (this.userId) {
+            this.http.get<any>(`/api/get-user/${this.userId}`).subscribe({
+                next: res => {
+                    this.userName = res.username;
+                }}
+            );
+        }
+    }
     
     goToFriendsList(){
         this.router.navigate(["/home/user"]);
