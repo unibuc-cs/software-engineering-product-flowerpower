@@ -46,6 +46,12 @@ OUR PRODUCT provides a simple, temporary photo-sharing experience with full cont
 ### Manual Testing
 #### Task: As a Blinq24/1 developer, I want to manually test if my photo has been sent.
 ![Photo Upload](images/photo_upload.png)
+#### Task: As a Blinq24/1 user, I want to manually test if friends are added to a group.
+![image](https://github.com/user-attachments/assets/bd469e9f-762d-4ee0-b333-55db0a3c9edf)
+#### Task: As a Blinq24/1 user, I want to manually test if the friends are added to my list.
+![image](https://github.com/user-attachments/assets/0c24b321-7942-49fd-82c2-74bb45ac8a0c)
+
+
 
 ### Demo
 [![Demo](https://img.youtube.com/vi/8s--Spr9I40/0.jpg)](https://www.youtube.com/watch?v=8s--Spr9I40)
