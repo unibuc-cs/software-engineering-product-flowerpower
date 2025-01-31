@@ -28,6 +28,9 @@ OUR PRODUCT provides a simple, temporary photo-sharing experience with full cont
 - User-Friendly Interface: The interface, built with Angular, is intuitive and easy to use.
 - Notifications: Users receive notifications when a photo is uploaded to groups they are part of.
 
+### Demo
+[![Demo](https://img.youtube.com/vi/8s--Spr9I40/0.jpg)](https://www.youtube.com/watch?v=8s--Spr9I40)
+
 ### Planning
 We approached the Kanban methodology for task solving. We created tasks (issues) from user stories (milestones) and solved depending on their priority, without any sprints.
 
@@ -54,7 +57,25 @@ We approached the Kanban methodology for task solving. We created tasks (issues)
 #### Task: As a Blinq24/1 user, I want to manually test if the friends are added to my list.
 ![image](https://github.com/user-attachments/assets/0c24b321-7942-49fd-82c2-74bb45ac8a0c)
 
+### QA
+#### Objectives
+- Artifacts: Backend functionality for login and register and full stack functionality for photo uploading, adding friends and populating groups.
+- Testing Levels: Unit testing and acceptance testing
+#### Process
+- Unit testing: Applied during the development phase
+- Manual testing: Applied during the deployment phase
+#### Testing methods
+- Unit testing: Used during development to ensure the critical parts (login and register) are working fine
+- Manual testing: Used to ensure the main features are working after release
+#### Results
+- After manual testing, few changes were made, such as adding error feedback and redirects to other components
 
+### [Security analysis](security_analysis.md)
 
-### Demo
-[![Demo](https://img.youtube.com/vi/8s--Spr9I40/0.jpg)](https://www.youtube.com/watch?v=8s--Spr9I40)
+### CI/CD
+- We used only a development environment, because we didn't find a use case for a production environment, since there was no connection string to change, or artifact to deploy.
+- We used a Continuous Integration (CI) script, running on Github Actions on every push, with the following stages combined in one job:
+  - build
+  - test
+  - create a unit test report: ![image](https://github.com/user-attachments/assets/1a8ae0cb-0299-4a12-ba8d-a2e2d85ab64c)
+
