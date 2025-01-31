@@ -1,23 +1,4 @@
 ﻿
-
-.custom-file-upload {
-    font-size: 1.2rem;
-    background-color: #f4f4f4;
-    border: 1px solid #e0e0e0;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-    display: block;
-}
-
-.custom-file-upload:hover {
-    background-color: #eaeaea;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-
 .custom-upload-container {
     text-align: center;
     margin-top: 20px;
@@ -29,7 +10,7 @@
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    background-color: #6a48b4;
+    background-color: #3b81f6;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -37,8 +18,8 @@
 }
 
 .custom-file-label:hover {
-    background-color: #5e3aa3;
-    box-shadow: 0 4px 10px rgba(94, 58, 163, 0.5);
+    background-color: #3b81f6;
+    box-shadow: 0 4px 10px #3b81f6;
 }
 
 .hidden-file-input {
@@ -48,10 +29,15 @@
 .file-name {
     margin-top: 10px;
     font-size: 0.9rem;
-    color: #6a48b4;
+    color: #3b81f6;
     font-weight: 500;
 }
 
 p-dropdown {
     display: block;
+    width:100%;
+}
+
+.visibility-dropdown .p-dropdown {
+    min-width:170px !important;
 }
