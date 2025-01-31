@@ -42,3 +42,7 @@ OUR PRODUCT provides a simple, temporary photo-sharing experience with full cont
 #### 3. Gratiela, a new user looking for a quick experience, opens Blinq24/1 and registers. After authenticating, she can start uploading photos immediately. The app’s interface guides her through the process, allowing her to set her desired audience. Gratiela enjoys an intuitive and simple experience, making it easy to quickly share temporary photos without complicated privacy settings.
 #### 4.	Eusebiu Vicentiu, a businessman who interacts with multiple groups of people ,on a daily basis, wants an easier way of sending different photos to different groups without having to worry about showing the wrong people his photos. Before sending the photo he either creates a group or chooses one that he already created , in which he can select which people are part of that group from his friends list. This allows him to send a photo to multiple people that do not know each at once without having to do so separately.
 
+
+### Manual Testing
+#### Task: As a Blinq24/1 developer, I want to manually test if my photo has been sent.
+![Photo Upload](images/photo_upload.png)
